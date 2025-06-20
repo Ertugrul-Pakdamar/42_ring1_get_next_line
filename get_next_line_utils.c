@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:20:45 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/19 22:16:16 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/20 12:49:22 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strlen(char *s)
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
-	int		i;
+	size_t	i;
 
 	res = (void *)malloc(nmemb * size);
 	if (res == NULL)
@@ -40,7 +40,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 void	*ft_realloc(void *arr, size_t len, size_t size)
 {
 	char	*res;
-	int		i;
+	size_t	i;
 
 	res = (char *)ft_calloc(size, sizeof(char));
 	i = 0;

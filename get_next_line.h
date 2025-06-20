@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:20:49 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/19 22:10:38 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/20 11:06:47 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
-int		ft_strlen(char *);
+int		ft_strlen(char *i);
 void	*ft_realloc(void *arr, size_t len, size_t size);
 
 #endif
