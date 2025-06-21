@@ -74,9 +74,9 @@ close(fd);
 ├── get_next_line.c        # Core logic
 ├── get_next_line_utils.c  # Helpers: string operations, buffer management
 ├── get_next_line.h        # Declarations and macros
-├── get_next_line_bonus.c        # Core logic
-├── get_next_line_utils_bonus.c  # Helpers: string operations, buffer management
-├── get_next_line_bonus.h        # Declarations and macros
+├── get_next_line_bonus.c        # Bonus core logic
+├── get_next_line_utils_bonus.c  # Bonus helpers: string operations, buffer management
+├── get_next_line_bonus.h        # Bonus declarations and macros
 └── README.md
 ```
 
