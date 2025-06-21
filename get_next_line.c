@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:07:58 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 21:56:40 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/21 22:05:48 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static char	*get_res(char *stat_s)
 
 static char	*set_stat(char *stat_s)
 {
-	char	*reset;
+	char	*new_stat;
 	int		i;
 	int		j;
 
@@ -76,16 +76,16 @@ static char	*set_stat(char *stat_s)
 		free(stat_s);
 		return (NULL);
 	}
-	reset = (char *)malloc(ft_strlen(&stat_s[i + 1]) + 1);
-	if (!reset)
+	new_stat = (char *)malloc(ft_strlen(&stat_s[i + 1]) + 1);
+	if (!new_stat)
 		return (NULL);
 	j = 0;
 	i++;
 	while (stat_s[i])
-		reset[j++] = stat_s[i++];
-	reset[j] = '\0';
+		new_stat[j++] = stat_s[i++];
+	new_stat[j] = '\0';
 	free(stat_s);
-	return (reset);
+	return (new_stat);
 }
 
 char	*get_next_line(int fd)

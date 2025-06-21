@@ -6,99 +6,99 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:15:01 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 21:56:39 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/21 22:06:19 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*read_newline(int fd, char *save)
+static char	*read_newline(int fd, char *stat_s)
 {
-	char	*buf;
-	ssize_t	bytes;
+	char	*buffer;
+	int		bytes_read;
 
-	buf = malloc(BUFFER_SIZE + 1);
-	if (!buf)
+	buffer = (char *)malloc(BUFFER_SIZE + 1);
+	if (!buffer)
 		return (NULL);
-	bytes = 1;
-	while (!ft_strchr(save, '\n') && bytes > 0)
+	bytes_read = 1;
+	while (!ft_strchr(stat_s, '\n') && bytes_read > 0)
 	{
-		bytes = read(fd, buf, BUFFER_SIZE);
-		if (bytes < 0)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read < 0)
 		{
-			free(buf);
-			free(save);
+			free(buffer);
+			free(stat_s);
 			return (NULL);
 		}
-		buf[bytes] = '\0';
-		save = ft_strjoin(save, buf);
+		buffer[bytes_read] = '\0';
+		stat_s = ft_strjoin(stat_s, buffer);
 	}
-	free(buf);
-	return (save);
+	free(buffer);
+	return (stat_s);
 }
 
-static char	*get_res(char *save)
+static char	*get_res(char *stat_s)
 {
-	char	*line;
+	char	*res;
 	int		i;
 
 	i = 0;
-	if (!save || !save[0])
+	if (!stat_s || !stat_s[0])
 		return (NULL);
-	while (save[i] && save[i] != '\n')
+	while (stat_s[i] && stat_s[i] != '\n')
 		i++;
-	line = malloc(i + (save[i] == '\n') + 1);
-	if (!line)
+	res = (char *)malloc(i + 2);
+	if (!res)
 		return (NULL);
 	i = 0;
-	while (save[i] && save[i] != '\n')
+	while (stat_s[i] && stat_s[i] != '\n')
 	{
-		line[i] = save[i];
+		res[i] = stat_s[i];
 		i++;
 	}
-	if (save[i] == '\n')
-		line[i++] = '\n';
-	line[i] = '\0';
-	return (line);
+	if (stat_s[i] == '\n')
+		res[i++] = '\n';
+	res[i] = '\0';
+	return (res);
 }
 
-static char	*set_stat(char *save)
+static char	*set_stat(char *stat_s)
 {
-	char	*rest;
+	char	*new_stat;
 	int		i;
 	int		j;
 
 	i = 0;
-	j = 0;
-	while (save[i] && save[i] != '\n')
+	while (stat_s[i] && stat_s[i] != '\n')
 		i++;
-	if (!save[i])
+	if (!stat_s[i])
 	{
-		free(save);
+		free(stat_s);
 		return (NULL);
 	}
-	rest = malloc(ft_strlen(save + i + 1) + 1);
-	if (!rest)
+	new_stat = (char *)malloc(ft_strlen(stat_s + i + 1) + 1);
+	if (!new_stat)
 		return (NULL);
+	j = 0;
 	i++;
-	while (save[i])
-		rest[j++] = save[i++];
-	rest[j] = '\0';
-	free(save);
-	return (rest);
+	while (stat_s[i])
+		new_stat[j++] = stat_s[i++];
+	new_stat[j] = '\0';
+	free(stat_s);
+	return (new_stat);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*save[6];
-	char		*line;
+	static char	*stat_s[6];
+	char		*res;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 5)
 		return (NULL);
-	save[fd] = read_newline(fd, save[fd]);
-	if (!save[fd])
+	stat_s[fd] = read_newline(fd, stat_s[fd]);
+	if (!stat_s[fd])
 		return (NULL);
-	line = get_res(save[fd]);
-	save[fd] = set_stat(save[fd]);
-	return (line);
+	res = get_res(stat_s[fd]);
+	stat_s[fd] = set_stat(stat_s[fd]);
+	return (res);
 }
