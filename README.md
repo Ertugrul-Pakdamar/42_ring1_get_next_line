@@ -11,7 +11,7 @@
 
 ###
 
-# 42_ring1_get_next_line
+# 🚀 get_next_line
 
 > 🚧 **Status:** In Progress
 
@@ -19,27 +19,13 @@ A small C function to read a line from a file descriptor, handling buffer bounda
 
 ---
 
-## Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Installation & Compilation](#installation--compilation)  
-- [Usage](#usage)  
-- [Behaviour & Edge Cases](#behaviour--edge-cases)  
-- [Project Structure](#project-structure)  
-- [Examples](#examples)  
-- [Contributing](#contributing)  
-- [License](#license)  
-
----
-
-## About
+## ✨ About
 
 The goal of this project is to implement `get_next_line`, a function that reads from a given file descriptor and returns a complete line each time it's called, including the newline character. This function should be robust, memory-efficient, and able to handle multiple file descriptors simultaneously.
 
 ---
 
-## Features
+## ⚙️ Features
 
 - Reads by chunks using a defined `BUFFER_SIZE`.
 - Returns a **null-terminated string** including the newline (`'\n'`) if present.
@@ -49,7 +35,7 @@ The goal of this project is to implement `get_next_line`, a function that reads 
 
 ---
 
-## Installation & Compilation
+## 🛠 Installation & Compilation
 
 ```bash
 git clone https://github.com/Ertugrul-Pakdamar/42_ring1_get_next_line.git
@@ -65,7 +51,7 @@ You can adjust compiler flags (CFLAGS, CC) and BUFFER_SIZE in the Makefile.
 
 ---
 
-## Usage
+## 💻 Usage
 
 Include the header and link the object file or library:
 ```c
@@ -82,7 +68,7 @@ close(fd);
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 ├── get_next_line.c        # Core logic
