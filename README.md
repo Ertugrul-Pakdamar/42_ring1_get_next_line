@@ -35,22 +35,6 @@ The goal of this project is to implement `get_next_line`, a function that reads 
 
 ---
 
-## 🛠 Installation & Compilation
-
-```bash
-git clone https://github.com/Ertugrul-Pakdamar/42_ring1_get_next_line.git
-cd 42_ring1_get_next_line
-make
-```
-
-This will compile:
-- get_next_line.c and its helper modules
-- A test driver: main.c
-- The final output: get_next_line.a or get_next_line.o
-You can adjust compiler flags (CFLAGS, CC) and BUFFER_SIZE in the Makefile.
-
----
-
 ## 💻 Usage
 
 Include the header and link the object file or library:
