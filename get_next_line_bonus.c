@@ -6,13 +6,13 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:15:01 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 21:20:45 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/21 21:56:39 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*read_to_newline(int fd, char *save)
+static char	*read_newline(int fd, char *save)
 {
 	char	*buf;
 	ssize_t	bytes;
@@ -37,10 +37,10 @@ static char	*read_to_newline(int fd, char *save)
 	return (save);
 }
 
-static char	*extract_line(char *save)
+static char	*get_res(char *save)
 {
 	char	*line;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	if (!save || !save[0])
@@ -62,11 +62,11 @@ static char	*extract_line(char *save)
 	return (line);
 }
 
-static char	*save_rest(char *save)
+static char	*set_stat(char *save)
 {
 	char	*rest;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -95,10 +95,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 5)
 		return (NULL);
-	save[fd] = read_to_newline(fd, save[fd]);
+	save[fd] = read_newline(fd, save[fd]);
 	if (!save[fd])
 		return (NULL);
-	line = extract_line(save[fd]);
-	save[fd] = save_rest(save[fd]);
+	line = get_res(save[fd]);
+	save[fd] = set_stat(save[fd]);
 	return (line);
 }

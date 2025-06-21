@@ -6,15 +6,15 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:20:04 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 21:20:04 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/21 21:31:52 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s && s[i])
@@ -39,8 +39,8 @@ char	*ft_strchr(const char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	char	*new;
 
 	i = 0;
