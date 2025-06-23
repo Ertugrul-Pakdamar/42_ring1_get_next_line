@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:20:04 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 22:04:02 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/23 18:29:49 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	res = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!res)
 		return (NULL);
 	while (s1 && s1[i])

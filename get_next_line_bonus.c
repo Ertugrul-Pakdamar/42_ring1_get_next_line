@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:15:01 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/21 22:06:19 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/23 18:31:37 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*get_res(char *stat_s)
 	int		i;
 
 	i = 0;
-	if (!stat_s || !stat_s[0])
+	if (!stat_s[0])
 		return (NULL);
 	while (stat_s[i] && stat_s[i] != '\n')
 		i++;
@@ -76,7 +76,7 @@ static char	*set_stat(char *stat_s)
 		free(stat_s);
 		return (NULL);
 	}
-	new_stat = (char *)malloc(ft_strlen(stat_s + i + 1) + 1);
+	new_stat = (char *)malloc(ft_strlen(&stat_s[i + 1]) + 1);
 	if (!new_stat)
 		return (NULL);
 	j = 0;
