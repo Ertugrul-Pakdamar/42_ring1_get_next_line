@@ -13,7 +13,7 @@
 
 # 🚀 get_next_line
 
-> 🚧 **Status:** In Progress
+> 🚧 **Status:** Completed
 
 A small C function to read a line from a file descriptor, handling buffer boundaries and end‑of‑file correctly, inspired by the 42 school’s Get Next Line project.
 

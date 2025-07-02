@@ -6,7 +6,7 @@
 /*   By: epakdama <epakdama@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 21:15:01 by epakdama          #+#    #+#             */
-/*   Updated: 2025/06/23 18:31:37 by epakdama         ###   ########.fr       */
+/*   Updated: 2025/06/26 19:33:04 by epakdama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ static char	*set_stat(char *stat_s)
 
 char	*get_next_line(int fd)
 {
-	static char	*stat_s[6];
+	static char	*stat_s[1024];
 	char		*res;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 5)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stat_s[fd] = read_newline(fd, stat_s[fd]);
 	if (!stat_s[fd])
